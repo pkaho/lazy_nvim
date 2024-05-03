@@ -1,4 +1,10 @@
 return {
+  -- color highlighter
+  {
+    'norcalli/nvim-colorizer.lua',
+    opts = { '*' },
+  },
+
   -- neo-tree
   {
     'nvim-neo-tree/neo-tree.nvim',
