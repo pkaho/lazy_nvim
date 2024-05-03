@@ -13,7 +13,7 @@ return {
     },
     keys = {
       {
-        -- refer: https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/mappings.lua
+        -- refer: https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/neo-tree.lua
         '<leader>o',
         function()
           if vim.bo.filetype == 'neo-tree' then
