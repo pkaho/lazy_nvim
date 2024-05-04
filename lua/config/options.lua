@@ -4,16 +4,12 @@
 
 vim.opt.inccommand = 'split'
 
+-- Check if 'pwsh' is executable and set the shell accordingly
+-- refer: https://github.com/LazyVim/LazyVim/issues/2151#issuecomment-1888294994
+if vim.fn.executable('pwsh') == 1 then
+  vim.opt.shell = 'pwsh'
+end
+
 -- vim.opt.backup = false
 -- vim.opt.writebackup = false
 -- vim.opt.swapfile = false
-
--- Check if 'pwsh' is executable and set the shell accordingly
--- refer: https://github.com/LazyVim/LazyVim/issues/2151#issuecomment-1888294994
-if vim.loop.os == 'Windows' then
-  if vim.fn.executable('pwsh') == 1 then
-    vim.o.shell = 'pwsh'
-  else
-    vim.o.shell = 'powershell'
-  end
-end

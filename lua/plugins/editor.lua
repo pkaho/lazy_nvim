@@ -1,4 +1,12 @@
 return {
+  -- edgy remove left
+  {
+    'folke/edgy.nvim',
+    opts = function(_, opts)
+      opts.left = nil
+    end
+  },
+
   -- color highlighter
   {
     'norcalli/nvim-colorizer.lua',
@@ -23,6 +31,17 @@ return {
           end
         end,
         desc = 'Toggle Explorer Focus',
+      },
+      {
+        '<leader>co',
+        function()
+          if require('edgy') then
+            vim.cmd.Neotree 'document_symbols'
+          else
+            vim.cmd.Neotree 'float document_symbols'
+          end
+        end,
+        desc = 'Symbols (Neotree)'
       },
     },
 
