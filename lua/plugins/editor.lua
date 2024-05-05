@@ -32,17 +32,7 @@ return {
         end,
         desc = 'Toggle Explorer Focus',
       },
-      {
-        '<leader>co',
-        function()
-          if require('edgy') then
-            vim.cmd.Neotree 'document_symbols'
-          else
-            vim.cmd.Neotree 'float document_symbols'
-          end
-        end,
-        desc = 'Symbols (Neotree)'
-      },
+      { '<leader>co', '<cmd>Neotree float document_symbols<cr>', desc = 'Symbols (Neotree)' },
     },
 
     opts = {
