@@ -6,5 +6,5 @@ vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Quit insert mode' })
 
 vim.keymap.set('n', '<null>', 'gg<S-v>G', { desc = 'Select all' })
 
-vim.keymap.set({ 'n', 'v' }, 'gl', '$', { desc = 'Go to line end' })
-vim.keymap.set({ 'n', 'v' }, 'gh', '^', { desc = 'Go to line start' })
+vim.keymap.set({ 'n', 'v', 'o' }, 'gl', '$', { desc = 'Go to line end' })
+vim.keymap.set({ 'n', 'v', 'o' }, 'gh', '^', { desc = 'Go to line start' })

@@ -37,7 +37,7 @@ return {
         bold = true,
         italic = true,
         transparency = false,
-      }
-    }
+      },
+    },
   },
 }
