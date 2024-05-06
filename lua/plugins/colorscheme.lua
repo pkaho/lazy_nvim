@@ -2,15 +2,17 @@ return {
   {
     'LazyVim/LazyVim',
     opts = {
-      colorscheme = 'catppuccin',
+      -- colorscheme = 'catppuccin',
+      colorscheme = 'rose-pine',
     },
   },
 
+  -- catppuccin
   {
     'catppuccin/nvim',
     name = 'catppuccin',
     opts = {
-      flavour = 'mocha',   -- latte, frappe, macchiato, mocha, auto
+      flavour = 'mocha',   -- auto, latte, frappe, macchiato, mocha
       dim_inactive = {
         enabled = true,    -- dims the background color of inactive window
         shade = 'dark',
@@ -22,5 +24,20 @@ return {
         },
       },
     },
+  },
+
+  -- rose-pine
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    opts = {
+      variant = 'main', -- auto, main, moon, or dawn
+      dim_inactive_windows = true,
+      style = {
+        bold = true,
+        italic = true,
+        transparency = false,
+      }
+    }
   },
 }
