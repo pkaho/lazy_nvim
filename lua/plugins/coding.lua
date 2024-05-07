@@ -1,4 +1,17 @@
 return {
+  {
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
+    init = function()
+      -- Multi-Cursor https://github.com/mg979/vim-visual-multi/blob/master/doc/vm-mappings.txt
+      -- vim.g.VM_leader = "\\"
+      vim.g.VM_theme = "purplegray"
+
+      -- https://github.com/mg979/vim-visual-multi/wiki/Mappings#full-mappings-list
+      vim.g.VM_set_statusline = 0 -- already set via lualine component
+    end,
+  },
+
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {

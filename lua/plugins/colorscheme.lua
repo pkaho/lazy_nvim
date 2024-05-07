@@ -31,7 +31,7 @@ return {
     'rose-pine/neovim',
     name = 'rose-pine',
     opts = {
-      variant = 'main', -- auto, main, moon, or dawn
+      variant = 'moon', -- auto, main, moon, or dawn
       dim_inactive_windows = true,
       style = {
         bold = true,
