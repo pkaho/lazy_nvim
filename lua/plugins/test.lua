@@ -70,4 +70,7 @@ return {
     },
     opts = {},
   },
+
+  -- disable list
+  { 'folke/tokyonight.nvim', enable = false },
 }
