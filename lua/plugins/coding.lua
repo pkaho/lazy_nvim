@@ -1,4 +1,42 @@
 return {
+  -- A simple popup display that provides breadcrumbs feature
+  {
+    'SmiteshP/nvim-navbuddy',
+    event = 'LazyFile',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'SmiteshP/nvim-navic',
+      'MunifTanjim/nui.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    keys = {
+      { '<leader>cb', '<cmd>Navbuddy<cr>', desc = 'Navbuddy' },
+    },
+    config = function()
+      require('nvim-navbuddy').setup({
+        window = {
+          border = 'rounded',
+        },
+        lsp = { auto_attach = true },
+      })
+    end
+  },
+
+  -- use the `w,e,b` motions liake a spider
+  {
+    'chrisgrieser/nvim-spider',
+    event = 'LazyFile',
+    config = function()
+      require('spider').setup({
+        skipInsignificantPunctuation = false
+      })
+      vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+      vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+      vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+      vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+    end
+  },
+
   {
     "mg979/vim-visual-multi",
     event = "VeryLazy",
@@ -16,6 +54,14 @@ return {
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
     'L3MON4D3/LuaSnip',
+    dependencies = {
+      {
+        'garymjr/nvim-snippets',
+        opts = {
+          search_paths = { vim.fn.stdpath('config') .. '/lua/snippets' }
+        }
+      },
+    },
     keys = function()
       return {}
     end,
@@ -25,9 +71,8 @@ return {
       -- refer: https://zjp-cn.github.io/neovim0.6-blogs/nvim/luasnip/doc1.html
       -- package.json
       -- refer: https://github.com/rafamadriz/friendly-snippets/blob/main/package.json
-      local snippets_path = vim.fn.stdpath('config') .. '/lua/config/snippets'
-      require('luasnip.loaders.from_vscode').load({ paths = snippets_path })
-      require('luasnip.loaders.from_lua').load({ paths = snippets_path })
+      local snippets_path = vim.fn.stdpath('config') .. '/lua/snippets'
+      require('luasnip.loaders.from_lua').load({ paths = { snippets_path } })
     end
   },
   -- then: setup supertab in cmp
@@ -73,18 +118,78 @@ return {
       })
 
       -- add sources
-      opts.sources = vim.tbl_extend('force', opts.sources, {
-        { name = 'codeium' },
-      })
+      -- opts.sources = vim.tbl_extend('force', opts.sources, {
+      --   { name = 'codeium' },
+      -- })
 
       -- override sources
       -- opts.sources = cmp.config.sources({
+      --   { name = 'codeium' },
       --   { name = 'nvim_lsp' },
       --   { name = 'luasnip' },
       --   { name = 'path' },
       --   { name = 'buffer' },
-      --   { name = 'codeium' },
       -- })
     end,
+  },
+
+  -- toggle zen mode
+  {
+    'folke/zen-mode.nvim',
+    event = 'LazyFile',
+    cmd = 'ZenMode',
+    opts = {},
+    keys = {
+      { '<leader>cz', '<cmd>ZenMode<CR>', desc = 'Zen Mode' },
+    },
+  },
+
+  -- dims inactive portions, pairs well with zen-mode
+  {
+    'folke/twilight.nvim',
+    event = 'LazyFile',
+    keys = {
+      { '<leader>ct', '<cmd>Twilight<cr>', desc = 'Twilight' },
+    },
+  },
+
+  -- align text interactively
+  {
+    'echasnovski/mini.align',
+    event = 'LazyFile',
+    opts = {
+      mappings = {
+        start = 'ga',
+        start_with_preview = 'gA',
+      },
+    },
+  },
+
+  -- removes trailing white space and empty lines at EOF
+  {
+    'mcauley-penney/tidy.nvim',
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>cw', function() require('tidy').run() end,    desc = 'Tidy Run' },
+      { '<leader>cW', function() require('tidy').toggle() end, desc = 'Tidy Toggle' },
+    },
+    opts = {
+      filetype_exclude = { 'markdown', 'diff' },
+    },
+  },
+
+  -- splitting/joining blocks of code
+  {
+    'Wansmer/treesj',
+    event = 'LazyFile',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    keys = {
+      { '<leader>cj', '<cmd>TSJToggle<cr>', desc = 'Treesj Toggle' },
+    },
+    config = function()
+      require('treesj').setup({
+        use_default_keymaps = false,
+      })
+    end
   },
 }

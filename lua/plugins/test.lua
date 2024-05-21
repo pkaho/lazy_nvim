@@ -1,4 +1,58 @@
 return {
+  -- project manager
+  {
+    'ahmedkhalf/project.nvim',
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>P', "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = 'Projects Manager' },
+    },
+    config = function()
+      require('project_nvim').setup({
+        active = true,
+        on_config_done = nil,
+        manual_mode = false,
+        detection_methods = { "pattern" },
+        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml" },
+        ignore_lsp = {},
+        exclude_dirs = {},
+        show_hidden = false,
+        silent_chdir = true,
+        scope_chdir = "global",
+      })
+    end
+  },
+
+  -- improved fzf.vim written in lua
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {},
+  },
+
+  -- git
+  {
+    'neogitorg/neogit',
+    event = 'VeryLazy',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    opts = {}
+  },
+
+  -- Navigate and manipulate file system
+  {
+    'stevearc/oil.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    keys = {
+      { '-', '<cmd>Oil --float<cr>', { desc = 'Open parent directory' } },
+    },
+    opts = {},
+  },
+
   -- go forward/backward with square brackets
   {
     "echasnovski/mini.bracketed",
