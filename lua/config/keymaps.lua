@@ -2,9 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Quit insert mode' })
+local map = LazyVim.safe_keymap_set
 
-vim.keymap.set('n', '<null>', 'gg<S-v>G', { desc = 'Select all' })
+map('i', 'jk', '<Esc>', { desc = 'Quit insert mode' })
 
-vim.keymap.set({ 'n', 'v', 'o' }, 'gl', '$', { desc = 'Go to line end' })
-vim.keymap.set({ 'n', 'v', 'o' }, 'gh', '^', { desc = 'Go to line start' })
+map('n', '<Nop>', 'gg<S-v>G', { desc = 'Select all' })
+
+map({ 'n', 'v', 'o' }, 'gl', '$', { desc = 'Go to line end' })
+map({ 'n', 'v', 'o' }, 'gh', '^', { desc = 'Go to line start' })
