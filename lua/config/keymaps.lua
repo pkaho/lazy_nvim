@@ -4,9 +4,9 @@
 
 local map = LazyVim.safe_keymap_set
 
-map('i', 'jk', '<Esc>', { desc = 'Quit insert mode' })
+map("i", "jk", "<Esc>", { desc = "Quit insert mode" })
 
-map('n', '<Nop>', 'gg<S-v>G', { desc = 'Select all' })
+map("n", "<Nop>", "gg<S-v>G", { desc = "Select all" })
 
-map({ 'n', 'v', 'o' }, 'gl', '$', { desc = 'Go to line end' })
-map({ 'n', 'v', 'o' }, 'gh', '^', { desc = 'Go to line start' })
+map({ "n", "v", "o" }, "gl", "$", { desc = "Go to line end" })
+map({ "n", "v", "o" }, "gh", "^", { desc = "Go to line start" })
