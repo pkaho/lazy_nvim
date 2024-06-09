@@ -22,15 +22,6 @@ return {
     end,
   },
 
-  -- improved fzf.vim written in lua
-  {
-    "ibhagwan/fzf-lua",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {},
-  },
-
   -- git
   {
     "neogitorg/neogit",
