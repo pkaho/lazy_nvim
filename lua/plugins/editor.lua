@@ -1,4 +1,47 @@
 return {
+  -- go forward/backward with square brackets
+  {
+    "echasnovski/mini.bracketed",
+    event = "BufReadPost",
+    config = function()
+      local bracketed = require("mini.bracketed")
+      bracketed.setup({
+        file = { suffix = "" },
+        window = { suffix = "" },
+        quickfix = { suffix = "" },
+        yank = { suffix = "" },
+        treesitter = { suffix = "n" },
+      })
+    end,
+  },
+
+  -- top right filename
+  -- refer: https://github.com/LazyVim/LazyVim/discussions/1188#discussioncomment-6516567
+  {
+    "b0o/incline.nvim",
+    event = "BufReadPre",
+    enabled = true,
+    config = function()
+      -- local colors = require("tokyonight.colors").setup()
+      -- local colors = require("catppuccin.palettes.mocha")
+      -- local colors = require("gruvbox").palette
+      require("incline").setup({
+        highlight = {
+          groups = {
+            InclineNormal = { guibg = "#ff8f5f", guifg = "#000000" },
+            InclineNormalNC = { guifg = "#ff8f5f", guibg = "#000000" },
+          },
+        },
+        window = { margin = { vertical = 0, horizontal = 1 } },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+          return { { icon, guifg = color }, { " " }, { filename } }
+        end,
+      })
+    end,
+  },
+
   -- cursor line number mode indicator
   {
     "mawkler/modicator.nvim",
