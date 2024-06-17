@@ -24,5 +24,5 @@ return {
   },
 
   -- disable list
-  { "folke/tokyonight.nvim", enable = false },
+  { "folke/tokyonight.nvim", enabled = false },
 }

@@ -9,7 +9,13 @@ return {
   },
 
   -- gruvbox
-  { "ellisonleao/gruvbox.nvim" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      dim_inactive = true,
+      transparent_mode = false,
+    },
+  },
 
   -- catppuccin
   {

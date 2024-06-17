@@ -75,10 +75,22 @@ return {
     end,
   },
 
-  -- color highlighter
+  -- colorizer and picker
   {
     "norcalli/nvim-colorizer.lua",
     opts = { "*" },
+  },
+  {
+    "ziontee113/color-picker.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>cp",
+        "<cmd>PickColor<cr>",
+        desc = "PickColor",
+      },
+    },
+    opts = {},
   },
 
   -- neo-tree
