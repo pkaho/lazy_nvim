@@ -37,6 +37,7 @@ return {
     end,
   },
 
+  -- TODO: add config
   {
     "mg979/vim-visual-multi",
     event = "VeryLazy",
@@ -50,32 +51,28 @@ return {
     end,
   },
 
-  -- Use <tab> for completion and snippets (supertab)
-  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
+  -- snippets, use nvim-snippets or LuaSnip
+  -- If use LuaSnip, need to add LuaSnip Extra to LazyExtras
   {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      {
-        "garymjr/nvim-snippets",
-        opts = {
-          search_paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
-        },
-      },
+    "garymjr/nvim-snippets",
+    opts = {
+      search_paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
     },
-    keys = function()
-      return {}
-    end,
-    config = function()
-      -- add custom snippets
-      -- refer: https://github.com/LazyVim/LazyVim/discussions/54#discussioncomment-4675882
-      -- refer: https://zjp-cn.github.io/neovim0.6-blogs/nvim/luasnip/doc1.html
-      -- package.json
-      -- refer: https://github.com/rafamadriz/friendly-snippets/blob/main/package.json
-      local snippets_path = vim.fn.stdpath("config") .. "/lua/snippets"
-      require("luasnip.loaders.from_lua").load({ paths = { snippets_path } })
-    end,
   },
-  -- then: setup supertab in cmp
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   config = function()
+  --     -- add custom snippets
+  --     -- refer: https://github.com/LazyVim/LazyVim/discussions/54#discussioncomment-4675882
+  --     -- refer: https://zjp-cn.github.io/neovim0.6-blogs/nvim/luasnip/doc1.html
+  --     -- package.json
+  --     -- refer: https://github.com/rafamadriz/friendly-snippets/blob/main/package.json
+  --     local snippets_path = vim.fn.stdpath("config") .. "/lua/snippets"
+  --     require("luasnip.loaders.from_lua").load({ paths = { snippets_path } })
+  --   end,
+  -- },
+
+  -- setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -89,17 +86,16 @@ return {
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
-      local luasnip = require("luasnip")
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-            -- this way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+          elseif vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
           elseif has_words_before() then
             cmp.complete()
           else
@@ -109,8 +105,10 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
+          elseif vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
           else
             fallback()
           end

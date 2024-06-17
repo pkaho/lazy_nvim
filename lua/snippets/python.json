@@ -4,6 +4,8 @@
       "hw",
       "hello"
     ],
-    "body": "Hello, ${1:world}!$0"
+    "body": [
+      "Hello, ${1:world}!$0"
+    ]
   }
 }

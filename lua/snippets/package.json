@@ -7,7 +7,7 @@
     "snippets": [
       {
         "language": "python",
-        "path": "None"
+        "path": "./python.json"
       }
     ]
   }
