@@ -116,9 +116,9 @@ return {
       })
 
       -- add sources
-      -- opts.sources = vim.tbl_extend("force", opts.sources, {
-      --   { name = "codeium" },
-      -- })
+      opts.sources = vim.tbl_extend("force", opts.sources, {
+        { name = "orgmode" },
+      })
 
       -- override sources
       -- opts.sources = cmp.config.sources({
