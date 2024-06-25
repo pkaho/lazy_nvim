@@ -1,4 +1,9 @@
 return {
+  {
+    "sindrets/diffview.nvim",
+    opts = {},
+  },
+
   -- orgmode
   -- refer: https://zhuanlan.zhihu.com/p/648802316
   {
