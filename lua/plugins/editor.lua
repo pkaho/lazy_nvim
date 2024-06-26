@@ -126,19 +126,19 @@ return {
           -- refer: https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#switch-between-filesystem-buffers-and-git_status
           ["e"] = {
             function()
-              vim.api.nvim_exec("Neotree focus filesystem", true)
+              vim.api.nvim_exec2("Neotree focus filesystem", { output = true })
             end,
             desc = "focus_filesystem",
           },
           ["b"] = {
             function()
-              vim.api.nvim_exec("Neotree focus buffers", true)
+              vim.api.nvim_exec2("Neotree focus buffers", { output = true })
             end,
             desc = "focus_buffers",
           },
           ["g"] = {
             function()
-              vim.api.nvim_exec("Neotree focus git_status", true)
+              vim.api.nvim_exec2("Neotree focus git_status", { output = true })
             end,
             desc = "focus_git_status",
           },
