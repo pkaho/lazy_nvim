@@ -115,19 +115,7 @@ return {
         end, { "i", "s" }),
       })
 
-      -- add sources
-      opts.sources = vim.tbl_extend("force", opts.sources, {
-        { name = "orgmode" },
-      })
-
-      -- override sources
-      -- opts.sources = cmp.config.sources({
-      --   { name = "codeium" },
-      --   { name = "nvim_lsp" },
-      --   { name = "luasnip" },
-      --   { name = "path" },
-      --   { name = "buffer" },
-      -- })
+      table.insert(opts.sources, { name = "orgmode" })
     end,
   },
 
