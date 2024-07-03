@@ -71,7 +71,7 @@ return {
   {
     "folke/edgy.nvim",
     opts = function(_, opts)
-      opts.left = nil
+      opts.left = { "None" }
     end,
   },
 
