@@ -21,6 +21,15 @@ return {
     "b0o/incline.nvim",
     event = "BufReadPre",
     enabled = true,
+    keys = {
+      {
+        "<leader>ua",
+        function()
+          require("incline").toggle()
+        end,
+        desc = "toggle incline"
+      }
+    },
     config = function()
       -- local colors = require("tokyonight.colors").setup()
       -- local colors = require("catppuccin.palettes.mocha")
