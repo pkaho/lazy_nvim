@@ -126,7 +126,16 @@ return {
     cmd = "ZenMode",
     opts = {},
     keys = {
-      { "<leader>cz", "<cmd>ZenMode<CR>", desc = "Zen Mode" },
+      {
+        "<leader>cz",
+        function()
+          require("zen-mode").toggle({ window = { width = .85 } })
+          if require("incline").is_enabled() then
+            require("incline").toggle()
+          end
+        end,
+        desc = "Zen Moda",
+      },
     },
   },
 

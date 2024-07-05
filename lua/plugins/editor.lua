@@ -94,7 +94,7 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<leader>cp",
+        "<leader>wp",
         "<cmd>PickColor<cr>",
         desc = "PickColor",
       },
@@ -111,7 +111,7 @@ return {
     keys = {
       {
         -- refer: https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/neo-tree.lua
-        "<leader>o",
+        "<leader>fo",
         function()
           if vim.bo.filetype == "neo-tree" then
             vim.cmd.wincmd("p")
@@ -121,10 +121,11 @@ return {
         end,
         desc = "Toggle Explorer Focus",
       },
-      { "<leader>co", "<cmd>Neotree float document_symbols<cr>", desc = "Symbols (Neotree)" },
+      { "<leader>cs", "<cmd>Neotree float document_symbols<cr>", desc = "Symbols (Neotree)" },
     },
 
     opts = {
+      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
       window = {
         position = "left",
         mappings = {
@@ -150,6 +151,12 @@ return {
               vim.api.nvim_exec2("Neotree focus git_status", { output = true })
             end,
             desc = "focus_git_status",
+          },
+          ["~"] = {
+            function()
+              vim.api.nvim_exec2("Neotree focus document_symbols", { output = true })
+            end,
+            desc = "focus_symbols",
           },
 
           -- Navigationwith HJKL
