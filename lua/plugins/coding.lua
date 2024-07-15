@@ -129,7 +129,7 @@ return {
       {
         "<leader>cz",
         function()
-          require("zen-mode").toggle({ window = { width = .85 } })
+          require("zen-mode").toggle({ window = { width = 0.85 } })
           if require("incline").is_enabled() then
             require("incline").toggle()
           end
