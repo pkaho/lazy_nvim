@@ -1,9 +1,16 @@
 return {
+  -- disable list
+  { "folke/tokyonight.nvim", enabled = false },
+
   {
     "sindrets/diffview.nvim",
+    event = "VeryLazy",
     opts = {},
   },
 
-  -- disable list
-  { "folke/tokyonight.nvim", enabled = false },
+  {
+    "stevearc/overseer.nvim",
+    event = "VeryLazy",
+    opts = {}
+  }
 }
