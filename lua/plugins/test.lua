@@ -11,6 +11,13 @@ return {
   {
     "stevearc/overseer.nvim",
     event = "VeryLazy",
-    opts = {}
-  }
+    opts = {},
+  },
+
+  -- {
+  --   "yetone/avante.nvim",
+  --   event = "VeryLazy",
+  --   lazy = false,
+  --   opts = {},
+  -- },
 }
