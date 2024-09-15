@@ -5,7 +5,8 @@
 local opt = vim.opt
 
 opt.inccommand = "split"
-vim.g.lazyvim_python_lsp = "basepyright"
+-- vim.g.lazyvim_python_lsp = "basepyright"
+vim.g.autoformat = false
 
 -- Check if "pwsh" is executable and set the shell accordingly
 -- refer: https://github.com/LazyVim/LazyVim/issues/2151#issuecomment-1888294994
