@@ -8,6 +8,7 @@ return {
       -- colorscheme = "cyberdream",
       -- colorscheme = "flexoki-dark", -- flexoki-dark, flexoki-light
       -- colorscheme = "nord",
+      -- colorscheme = "melange",
     },
   },
 
@@ -81,5 +82,10 @@ return {
   {
     event = "VeryLazy",
     "shaunsingh/nord.nvim",
+  },
+
+  -- melange
+  {
+    "savq/melange-nvim",
   },
 }
