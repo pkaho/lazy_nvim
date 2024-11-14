@@ -51,21 +51,6 @@ return {
     end,
   },
 
-  -- cursor line number mode indicator
-  {
-    "mawkler/modicator.nvim",
-    event = "BufEnter",
-    opts = {
-      show_warrings = false,
-      highlights = {
-        defaults = {
-          bold = true,
-          italic = false,
-        },
-      },
-    },
-  },
-
   -- peek lines of the buffer
   {
     "nacro90/numb.nvim",
