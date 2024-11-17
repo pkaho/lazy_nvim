@@ -88,4 +88,8 @@ return {
   {
     "savq/melange-nvim",
   },
+
+  {
+    "samharju/synthweave.nvim",
+  }
 }
