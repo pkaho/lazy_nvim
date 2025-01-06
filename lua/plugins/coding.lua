@@ -53,12 +53,12 @@ return {
 
   -- snippets, use nvim-snippets or LuaSnip
   -- If use LuaSnip, need to add LuaSnip Extra to LazyExtras
-  {
-    "garymjr/nvim-snippets",
-    opts = {
-      search_paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
-    },
-  },
+  -- {
+  --   "garymjr/nvim-snippets",
+  --   opts = {
+  --     search_paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
+  --   },
+  -- },
   -- {
   --   "L3MON4D3/LuaSnip",
   --   config = function()
