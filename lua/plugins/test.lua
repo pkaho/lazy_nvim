@@ -21,7 +21,7 @@ return {
 
   {
     "mbbill/undotree"
-  }
+  },
 
   -- task runner and jot management plugin
   -- {
