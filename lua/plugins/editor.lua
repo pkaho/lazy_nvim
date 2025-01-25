@@ -75,13 +75,13 @@ return {
     opts = { "*" },
   },
   {
-    "ziontee113/color-picker.nvim",
+    "uga-rosa/ccc.nvim",
     event = "VeryLazy",
     keys = {
       {
-        "<leader>wp",
-        "<cmd>PickColor<cr>",
-        desc = "PickColor",
+        "<leader>cp",
+        "<cmd>CccPick<cr>",
+        desc = "ColorPick",
       },
     },
     opts = {},
