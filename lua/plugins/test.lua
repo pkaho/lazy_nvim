@@ -20,7 +20,10 @@ return {
   },
 
   {
-    "mbbill/undotree"
+    "mbbill/undotree",
+    keys = {
+      { "<leader><F5>", vim.cmd.UndotreeToggle, desc = "ToggleUndoTree" },
+    },
   },
 
   -- task runner and jot management plugin
@@ -37,4 +40,18 @@ return {
   --   lazy = false,
   --   opts = {},
   -- },
+
+  -- A Neovim plugin that displays interactive vertical scrollbars and signs.
+  {
+    "dstein64/nvim-scrollview",
+    opts = {
+      excluded_filetypes = { "nerdtree" },
+      current_only = true,
+      base = "right",
+      column = 1,
+      signs_on_startup = { "all" },
+      diagnostics_severities = { vim.diagnostic.severity.ERROR },
+      consider_border = true,
+    },
+  },
 }
