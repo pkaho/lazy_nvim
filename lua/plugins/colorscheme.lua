@@ -65,9 +65,7 @@ return {
     opts = {
       transparent = false,
       italic_comments = true,
-      theme = {
-        variant = "auto", -- default, auto, light
-      },
+      variant = "auto", -- default, auto, light
     },
   },
 
