@@ -5,6 +5,8 @@
 local opt = vim.opt
 
 opt.inccommand = "split"
+opt.hidden = true -- 允许当前 buffer 未保存时，在 buffer list 中跳转
+
 -- vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.autoformat = false
 
