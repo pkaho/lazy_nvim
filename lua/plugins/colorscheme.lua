@@ -2,10 +2,10 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin",
       -- colorscheme = "rose-pine",
       -- colorscheme = "gruvbox",
-      -- colorscheme = "cyberdream",
+      colorscheme = "cyberdream",
       -- colorscheme = "flexoki-dark", -- flexoki-dark, flexoki-light
       -- colorscheme = "nord",
       -- colorscheme = "melange",
@@ -27,7 +27,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "mocha", -- auto, latte, frappe, macchiato, mocha
+      flavour = "latte", -- auto, latte, frappe, macchiato, mocha
       dim_inactive = {
         enabled = true, -- dims the background color of inactive window
         shade = "dark",
@@ -65,7 +65,7 @@ return {
     opts = {
       transparent = false,
       italic_comments = true,
-      variant = "auto", -- default, auto, light
+      variant = "default", -- default, auto, light
     },
   },
 

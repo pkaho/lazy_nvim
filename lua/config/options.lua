@@ -9,6 +9,7 @@ opt.hidden = true -- 允许当前 buffer 未保存时，在 buffer list 中跳�
 
 -- vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.autoformat = false
+vim.g.snacks_animate = false
 
 -- Check if "pwsh" is executable and set the shell accordingly
 -- refer: https://github.com/LazyVim/LazyVim/issues/2151#issuecomment-1888294994
