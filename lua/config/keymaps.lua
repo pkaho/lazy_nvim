@@ -12,3 +12,5 @@ map("n", "<Nop>", "gg<S-v>G", { desc = "Select all" })
 
 map({ "n", "v", "o" }, "gh", "^", { desc = "Go to line start" })
 map({ "n", "v", "o" }, "gl", "$", { desc = "Go to line end" })
+
+map({ "n" }, "none", ":w !sudo tee % >/dev/null<CR>:e!<CR>", { noremap = true, silent = true })
